@@ -1,5 +1,5 @@
 // otpController.js
-const { sendOTP } = require('../services/orp.services');
+const { sendOTP } = require('../services/otp.services');
 
 // Example API to send OTP
 const sendOTPController = async (req, res) => {
