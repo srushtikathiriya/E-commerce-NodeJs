@@ -49,6 +49,20 @@ exports.loginUser = async(req,res) => {
     }
 }
 
+// Get All User
+exports.getAllUser = async(req,res) =>{
+    try {
+        let users = await User.find({isDelete : false});
+        res.status(200).json(users);
+    } 
+    catch(error) {
+        console.log(error);
+        res.status(500).json({message:"Internal Server Error"})
+    }
+}
+
+// 
+
 // User Profile
 exports.userProfile = async(req,res) =>{
     try {
@@ -60,7 +74,7 @@ exports.userProfile = async(req,res) =>{
 }
 
 // updateProfile
-exports.updateProfile = async (req,res) =>{
+exports.updateProfile = async (req,res) =>{ 
     try {
        let user = req.user;
        user = await userServices.update(user._id, req.body);

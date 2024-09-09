@@ -5,13 +5,15 @@ const {
     loginUser,
     userProfile,
     updateProfile,
-    deleteUser
+    deleteUser,
+    getAllUser
 } = require("../controller/user.controller");
 const {upload} = require("../helpers/imageUpload");
 const {verifyToken} = require("../helpers/tokenVerify")
 
 userRoutes.post("/register",upload.single("profileImage"),registerUser);
 userRoutes.post("/login",loginUser);
+userRoutes.get("/get-alluser",getAllUser);
 userRoutes.get("/me",verifyToken,userProfile);
 userRoutes.put("/update-profile",verifyToken,updateProfile);
 userRoutes.delete("/delete-user",verifyToken,deleteUser);

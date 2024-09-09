@@ -7,7 +7,7 @@ class UserServices{
         return await User.findByIdAndUpdate(userId, {$set: body}, {new: true});
     }
     async delete(userId, body){
-        return await User.findByIdAndUpdate(userId,body ,{new: true});
+        return await User.findByIdAndUpdate(userId,body,{new: true});
     }
 }
 module.exports = UserServices;
