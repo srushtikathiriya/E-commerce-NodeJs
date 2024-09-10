@@ -23,8 +23,13 @@ server.get('/',(req,res)=>{
 const userRoutes = require("./routes/user.routes");
 server.use("/api/user",userRoutes);
 
+// OTP routes
 const otpRoutes = require('./routes/otp.routes');
 server.use("/api/otp",otpRoutes);
+
+// Product routes
+const productRoutes = require("./routes/product.routes");
+server.use("/api/product",productRoutes);
 
 server.listen(ports, () => {
     // Database connection

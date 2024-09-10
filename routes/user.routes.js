@@ -6,6 +6,7 @@ const {
     userProfile,
     updateProfile,
     deleteUser,
+    changePassword,
     getAllUser
 } = require("../controller/user.controller");
 const {upload} = require("../helpers/imageUpload");
@@ -16,6 +17,7 @@ userRoutes.post("/login",loginUser);
 userRoutes.get("/get-alluser",getAllUser);
 userRoutes.get("/me",verifyToken,userProfile);
 userRoutes.put("/update-profile",verifyToken,updateProfile);
+userRoutes.put("/change-password", verifyToken, changePassword);
 userRoutes.delete("/delete-user",verifyToken,deleteUser);
 
 module.exports = userRoutes;
