@@ -4,12 +4,14 @@ const Product = require("../model/product.model");
 exports.addNewProduct = async (req, res) => {
     try {
         // console.log(req.body);
-        const {category,price,brand,image} = req.body;
-        let product = await Product.findOne({brand:brand});
+        const { title, description, category, price, discountPercentage, brand, size,color,material,stock,
+              images,thumbnail, gender,occasion,season,availabilityStatus } = req.body;
+        let product = await Product.findOne({brand,isDelete:false});
         if(product)
             return res.status(400).json({message:"Product already exists"});
         product = await Product.create({
-            category,price,brand,image
+            title, description, category, price, discountPercentage, brand, size,color,material,stock,
+              images,thumbnail, gender,occasion,season,availabilityStatus
         });
         product.save();
         res.status(201).json({product,message:"Product Added"});

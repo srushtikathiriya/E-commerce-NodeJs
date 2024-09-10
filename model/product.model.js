@@ -6,52 +6,56 @@ const productSchema = mongoose.Schema({
         required: true 
     },
     description: { 
-        type: String, 
-        required: true },
-    category: { 
-        type: String, 
-        required: true, 
-        default: 'Fashion' },
+        type: String 
+    },
     price: { 
         type: Number, 
         required: true },
-    brand: { 
+    category: { 
         type: String, 
-        required: true },
-    size: { 
-        type: String, 
-        enum: ['XS', 'S', 'M', 'L', 'XL', 'XXL'], 
-        required: true },
-    color: { 
-        type: String, 
-        required: true },
-    material: { 
-        type: String, 
-        required: true },
-    stock: { 
-        type: Number, 
-        default: 0 },
-    images: [String],
-    thumbnail: { 
-        type: String,
-         required: true 
-        },
-    gender: { 
-        type: String, 
-        enum: ['Men', 'Women', 'Unisex'], 
-        required: true },
-    occasion: { 
-        type: String, 
-        enum: ['Casual', 'Formal', 'Sportswear', 'Party'], 
         required: true 
+    },
+    brand: { 
+        type: String 
+    },
+    size: { 
+        type: String
+     },
+    color: { 
+        type: String 
+    },
+    material: { 
+        type: String 
+    },
+    stock: { 
+        type: Number 
+    },
+    images: { 
+        type: [String] 
+    },
+    thumbnail: { 
+        type: String
+     },
+    gender: { 
+        type: String 
+    },
+    occasion: { 
+        type: String 
     },
     season: { 
+        type: String
+     },
+    availabilityStatus: { 
         type: String, 
-        enum: ['Summer', 'Winter', 'Spring', 'Autumn'], 
-        required: true 
+        default: 'In Stock' 
     },
-    availabilityStatus: { type: String, default: 'In Stock' }
-}, { timestamps: true });
+    isDelete: { 
+        type: Boolean, 
+        default: false 
+    }
+}, {
+    versionKey: false,
+    timestamps: true
+});
 
-
-module.exports = mongoose.model('product', productSchema);
+module.exports = mongoose.model('Product', productSchema);
