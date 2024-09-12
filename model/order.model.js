@@ -21,13 +21,9 @@ const orderSchema = mongoose.Schema(
     totalPrice: {
       type: Number
     },
-    isDeleted: {
+    isDelete: {
       type: Boolean,
       default: false
-    },
-    isStatus: {
-      type: String,
-      default: "Process"
     }
   },
   {
