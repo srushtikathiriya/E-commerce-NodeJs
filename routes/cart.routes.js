@@ -9,8 +9,8 @@ CartRoutes.get('/',verifyToken,getAllCart);
 
 CartRoutes.post('/',verifyToken,addToCart); // - [Done]
 
-CartRoutes.post('/updateCart',verifyToken,updateToCart);  // - [Done]
+CartRoutes.put('/updateCart',verifyToken,updateToCart);  // - [Done]
 
-CartRoutes.post('/deleteCart',verifyToken,deleteToCart); //  - [Done]
+CartRoutes.delete('/deleteCart',verifyToken,deleteToCart); //  - [Done]
 
 module.exports = CartRoutes;

@@ -35,6 +35,11 @@ server.use("/api/product",productRoutes);
 const CartRoutes = require("./routes/cart.routes");
 server.use("/api/carts",CartRoutes);
 
+// order routes
+const orderRoutes = require("./routes/order.routes");
+server.use("/api/orders",orderRoutes);
+
+
 server.listen(ports, () => {
     // Database connection
     mongoose
