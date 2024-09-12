@@ -39,6 +39,9 @@ server.use("/api/carts",CartRoutes);
 const orderRoutes = require("./routes/order.routes");
 server.use("/api/orders",orderRoutes);
 
+//review routes
+const reviewRoutes=require('./routes/review.routes');
+server.use("/api/review",reviewRoutes)
 
 server.listen(ports, () => {
     // Database connection
