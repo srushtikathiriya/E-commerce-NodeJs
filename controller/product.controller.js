@@ -11,7 +11,7 @@ exports.addNewProduct = async (req,res) =>{
     let product = await productServices.findProduct({productName :productName});
     if(product)
       return res.status(400).json({message : "Product Already Exist.."});
-    product = await Product.create({
+    product = await productServices.addProduct({
       productName ,  price , discription , rating , othersProducts ,image
     });
     res.status(201).json({product , message : "Product added"})
