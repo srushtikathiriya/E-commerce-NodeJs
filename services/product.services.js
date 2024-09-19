@@ -5,16 +5,20 @@ class ProductService {
         return await Product.findOne(body);
     }
 
-    // async getAllProducts(query) {
-    //     const { page = 1, limit = 10, sort = 'price', search } = query;
-    //     const filter = search ? { title: { $regex: search, $options: 'i' }, isDelete: false } : { isDelete: false };
-    //     const products = await Product.find(filter)
-    //         .sort(sort)
-    //         .skip((page - 1) * limit)
-    //         .limit(limit);
-    //     const total = await Product.countDocuments(filter);
-    //     return { products, total };
-    // }
+    async getAllProducts(query) {
+        const { page = 1, limit = 10, sort = 'price', search } = query;
+        const filter = search ? { title: { $regex: search, $options: 'i' }, isDelete: false } : { isDelete: false };
+        const products = await Product.find(filter)
+            .sort(sort)
+            .skip((page - 1) * limit)
+            .limit(limit);
+        const total = await Product.countDocuments(filter);
+        return { products, total };
+    }
+
+    async findProductId(query) {
+        return await Product.findById(query);
+    }
 
     async addProduct(body) {
         const product = await Product.create(body);

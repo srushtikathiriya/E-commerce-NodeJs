@@ -1,19 +1,16 @@
-// otpService.js
 const nodemailer = require('nodemailer');
 
-// Create a transporter with your Gmail credentials
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-        user: 'srushtikathiriya2003@gmail.com',  // Your Gmail email
-        pass: 'jpmv dfdw gxja rjjl',     // Your generated app password from Google
+        user: process.env.MAIL_USER,
+        pass: process.env.MAIL_PASSWORD,
     },
 });
 
 // Function to send OTP
 const sendOTP = async (email, otp) => {
     try {
-        // Ensure that the email address is provided
         if (!email) {
             throw new Error('No email address provided');
         }
